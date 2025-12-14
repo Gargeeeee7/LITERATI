@@ -50,3 +50,16 @@ section {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* Reveal animation for anchored sections (used by Explore transition) */
+#about[data-hidden="true"] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#about[data-hidden="true"].reveal,
+#about.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
