@@ -51,7 +51,6 @@ section {
   box-sizing: border-box;
 }
 
-/* Reveal animation for anchored sections (used by Explore transition) */
 #about[data-hidden="true"] {
   opacity: 0;
   transform: translateY(28px);

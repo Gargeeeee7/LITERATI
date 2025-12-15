@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import { Lightbulb, Pencil, Users } from "lucide-react"
 
 const About = () => {
   return (
@@ -18,29 +19,44 @@ const About = () => {
         </p>
 
         <div className="features">
-          <div className="feature-card">
-            <div className="icon">💡</div>
-            <h3>Inspire</h3>
-            <p>Workshops, talks, and readings that ignite fresh ideas.</p>
-          </div>
+  <div className="feature-card">
+    <div className="icon">
+      <Lightbulb size={40} strokeWidth={1.7} />
+    </div>
+    <h3>Inspire</h3>
+    <p>Workshops, talks, and readings that ignite fresh ideas.</p>
+  </div>
 
-          <div className="feature-card">
-            <div className="icon">✏️</div>
-            <h3>Create</h3>
-            <p>Hands-on sessions, writing jams, and collaborative spaces.</p>
-          </div>
+  <div className="feature-card">
+    <div className="icon">
+      <Pencil size={40} strokeWidth={1.7} />
+    </div>
+    <h3>Create</h3>
+    <p>Hands-on sessions, writing jams, and collaborative spaces.</p>
+  </div>
 
-          <div className="feature-card">
-            <div className="icon">🧬</div>
-            <h3>Connect</h3>
-            <p>Meet people who share curiosity and passion for stories.</p>
-          </div>
-        </div>
+  <div className="feature-card">
+    <div className="icon">
+      <Users size={40} strokeWidth={1.7} />
+    </div>
+    <h3>Connect</h3>
+    <p>Meet people who share curiosity and passion for stories.</p>
+  </div>
+</div>
 
         <div className="stats">
-          <div className="stat"><span>3 days</span></div>
-          <div className="stat"><span>15+ workshops</span></div>
-          <div className="stat"><span>2000+ attendees</span></div>
+          <div className="stat">
+            <div>3</div>
+            <span>Days</span>
+          </div>
+          <div className="stat">
+            <div>15+</div>
+            <span>Workshops</span>
+          </div>
+          <div className="stat">
+            <div>2000+</div>
+            <span>Attendees</span>
+          </div>
         </div>
 
         <p className="footer-text">
