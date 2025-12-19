@@ -33,10 +33,10 @@ const Book = () => {
 
   return (
     <div className='max-w-screen h-screen  flex justify-center items-center'>
-      <img src="src\assets\1213.gif" alt="cave gif" />
+      <img src="src/assets/1213.gif" alt="cave gif" />
       <div className='absolute h-[80%] flex justify-center items-center '>
         <img
-          src="src\assets\slazzer-preview-npzbp.svg"
+          src="src/assets/slazzer-preview-npzbp.svg"
           alt="book"
           className="md:h-full md:object-contain"
         />
