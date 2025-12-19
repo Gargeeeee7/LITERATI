@@ -1,17 +1,19 @@
 import React from 'react'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function ClosedBook({onOpen}) {
+  const navigate = useNavigate()
   return (
     <div className="relative min-h-[100dvh] w-full overflow-hidden bg-black">
       
-      {/* Background GIF */}
+     
       <img
         src="/cave.gif"
         alt="background"
         className="absolute inset-0 w-full h-full object-cover scale-105"
       />
 
-      {/* Book Wrapper */}
+    
       <div
         className="
           group
@@ -23,7 +25,7 @@ function ClosedBook({onOpen}) {
           z-20
         "
       >
-        {/* Glow (always on mobile, hover on desktop) */}
+     
         <div
   className="
     absolute
@@ -47,21 +49,21 @@ function ClosedBook({onOpen}) {
 />
 
 
-        {/* Book Image */}
+        
         <img
           src="/book.png"
           alt="book"
-          onClick={onOpen}
+          onClick={() => navigate("/register/login")}
           className="
             relative
-    z-10
-    w-40
-    md:w-56
-    cursor-pointer
-    transition-transform
-    duration-500
-    md:group-hover:scale-110
-    drop-shadow-[0_25px_30px_rgba(0,0,0,0.7)]
+            z-10
+            w-40
+            md:w-56
+            cursor-pointer
+            transition-transform
+            duration-500
+            md:group-hover:scale-110
+            drop-shadow-[0_25px_30px_rgba(0,0,0,0.7)]
           "
         />
       </div>

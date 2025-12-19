@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import './Login.css'
 
 function Login() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -70,8 +72,7 @@ function Login() {
               />
 
               <a
-                href="#"
-                className=" cursor:pointer text-sm italic underline text-right"
+                className=" cursor-pointer text-sm italic underline text-right"
               >
                 Forgot Password?
               </a>
@@ -85,8 +86,8 @@ function Login() {
               <p className="text-sm italic mt-2 text-center">
                 Don’t have an account?{" "}
                 <a
-                  href="/register"
-                  className="underline font-semibold"
+                  onClick={() => navigate("/book")}
+                  className="underline font-semibold cursor-pointer"
                 >
                   Register
                 </a>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import About from "../components/About/About";
@@ -12,9 +13,10 @@ import FAQ from "../components/FAQ/FAQ";
 import Footer from "../components/Footer/Footer";
 
 const Landing = ({onRegisterClick}) => {
+  const navigate = useNavigate()
   return (
     <div className="landing-container">
-      <Header onRegisterClick={onRegisterClick} />
+      <Header onRegisterClick={() => navigate("/register")} />
       <Hero />
       <About />
       <Events />
