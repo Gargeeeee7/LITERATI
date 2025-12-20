@@ -4,7 +4,7 @@ import Book from "./components/Registration-Form/Book";
 import Landing from "./pages/Landing";
 import Register from "./pages/Register"
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
-import "./App.css";
+// import "./App.css";
 
 function App() {
   return (

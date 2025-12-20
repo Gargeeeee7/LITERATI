@@ -11,6 +11,8 @@ import Timeline from "../components/Timeline/Timeline";
 import Stats from "../components/Stats/Stats";
 import FAQ from "../components/FAQ/FAQ";
 import Footer from "../components/Footer/Footer";
+import "../../src/index.css"
+import "../../src/App.css"
 
 const Landing = ({onRegisterClick}) => {
   const navigate = useNavigate()
