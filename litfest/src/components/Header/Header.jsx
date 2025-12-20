@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
+
 
 const Header = () => {
   return (
@@ -10,7 +12,7 @@ const Header = () => {
         <a href="#events">Events</a>
         <a href="#speakers">Speakers</a>
         <a href="#timeline">Timeline</a>
-        <a href="#register" className="register-btn">Register</a>
+        <Link className="cursor-pointer register-btn" to="/register">Register</Link>
       </nav>
     </header>
   );
