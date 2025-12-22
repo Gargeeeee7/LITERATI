@@ -10,41 +10,40 @@ function ClosedBook({onOpen}) {
       <img
         src="/cave.gif"
         alt="background"
-        className="absolute inset-0 w-full h-full object-cover scale-105"
+        className="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none"
       />
 
     
       <div
         className="
-          group
-          absolute
-          left-1/2
-          top-1/2
-          -translate-x-1/2
-          -translate-y-1/2
-          z-20
+           group
+           absolute
+           left-1/2
+           top-1/2
+           -translate-x-1/2
+           -translate-y-1/2
+           z-20
+           cursor-pointer
         "
       >
      
         <div
   className="
     absolute
-    top-1/2
-    left-1/2
-    w-40
-    h-40
-    -translate-x-1/2
-    -translate-y-1/2
-    rounded-full
-    bg-cyan-400/50
-    blur-3xl
-    opacity-100
-    transition-all
-    duration-500
-
-    md:opacity-0
-    md:group-hover:opacity-100
-    md:scale-110
+      top-1/2
+      left-1/2
+      w-44
+      h-44
+      -translate-x-1/2
+      -translate-y-1/2
+      rounded-full
+      bg-cyan-400/60
+      blur-3xl
+      opacity-0
+      transition-all
+      duration-500
+      group-hover:opacity-100
+      group-hover:scale-125
   "
 />
 
@@ -55,15 +54,11 @@ function ClosedBook({onOpen}) {
           alt="book"
           onClick={() => navigate("/register/login")}
           className="
-            relative
-            z-10
-            w-40
-            md:w-56
-            cursor-pointer
-            transition-transform
-            duration-500
-            md:group-hover:scale-110
-            drop-shadow-[0_25px_30px_rgba(0,0,0,0.7)]
+          w-40
+          transition-all
+          duration-500
+          group-hover:scale-110
+          group-hover:drop-shadow-[0_0_40px_rgba(34,211,238,0.8)]
           "
         />
       </div>
