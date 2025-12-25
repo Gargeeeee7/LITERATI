@@ -11,7 +11,6 @@
   overflow: hidden;
 }
 
-/* Top glowing line */
 .footer::before {
   content: "";
   position: absolute;
@@ -22,7 +21,6 @@
   background: linear-gradient(90deg, transparent, #7fffa1, transparent);
 }
 
-/* Main layout */
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -32,7 +30,6 @@
   text-align: left;
 }
 
-/* Contact section */
 .footer-contact {
   max-width: 70%;
 }
@@ -47,13 +44,11 @@
   font-weight: 300;
 }
 
-/* Icons in contact */
 .footer-icon {
   color: #7fffa1;
   font-size: 0.9rem;
 }
 
-/* Email link */
 .footer-email {
   color: #7fffa1;
   text-decoration: none;
@@ -63,7 +58,6 @@
   text-decoration: underline;
 }
 
-/* Social icons */
 .footer-socials {
   display: flex;
   align-items: center;
@@ -81,7 +75,6 @@
   opacity: 0.8;
 }
 
-/* Copyright */
 .footer-copy {
   color: #777;
   margin: 0;
@@ -90,7 +83,7 @@
   font-weight: 300;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .footer {
     padding: 30px 25px;
