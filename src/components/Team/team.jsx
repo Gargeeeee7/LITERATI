@@ -17,14 +17,14 @@ const teamData = [
     name: "Divyam Dixit",
     role: "Web Dev Head",
     year: "4th Year",
-    image: ""
+    image: "Divyam.jpg"
   },
   {
     id: 2,
     name: "Abhinav Pandey",
     role: "Core Coordinator",
     year: "3rd Year",
-    image: ""
+    image: "Abhinav.jpg"
   },
   {
     id: 4,
@@ -73,7 +73,7 @@ const teamData = [
     name: "Gargee Dhale",
     role: "Member",
     year: "1st Year",
-    image: ""
+    image: "Gargee.jpg"
   }
 ];
 
