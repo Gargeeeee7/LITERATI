@@ -3,21 +3,30 @@ import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import axios from "axios";
 
-
 import ProfileHeader from "../components/Profile/ProfileHeader";
 import "../styles/Profile.css";
 
 const Profile = () => {
-  const API = import.meta.env.VITE_API_URL;
-
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const [availableEvents, setAvailableEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [registering, setRegistering] = useState(false);
-  const [showThanks, setShowThanks] = useState(false);
+  const [events, setEvents] = useState([])
+  const [registering, setRegistering] = useState(false)
+
+  useEffect(() => {
+  const fetchEvents = async () => {
+    try {
+      const LIT_API = import.meta.env.VITE_LIT_API_URL;
+      const res = await axios.get(`${LIT_API}/api/events`);
+      setEvents(res.data); 
+    } catch (err) {
+      console.log("Failed to fetch events", err);
+    }
+  };
+
+  fetchEvents();
+}, []);
 
 
   useEffect(() => {
@@ -50,58 +59,6 @@ const Profile = () => {
     fetchProfile();
   }, [navigate]);
 
-  useEffect(() => {
-    const fetchEvents = async (retry = false) => {
-      try {
-        const res = await axios.get(`${API}/api/events`);
-
-        if (res.data.success) {
-          setAvailableEvents(res.data.events);
-        }
-      } catch (err) {
-        if (!retry) {
-          setTimeout(() => fetchEvents(true), 1000);
-        } else {
-          console.error("Failed to fetch events after retry", err);
-        }
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
-
-  const registerInterest = async () => {
-    if (!selectedEvent) return;
-
-    try {
-      setRegistering(true);
-      const API = import.meta.env.VITE_API_URL;
-      const token = localStorage.getItem("token");
-
-      await axios.post(
-        `${API}/api/events/${selectedEvent.code}/interest`,
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      setSelectedEvent(null);
-      setShowThanks(true);
-    } catch (err) {
-      alert(
-        err.response?.data?.message ||
-        "Failed to register interest"
-      );
-    } finally {
-      setRegistering(false);
-    }
-  };
-
-
   if (loading) {
     return <div className="profile-loading">Loading profile...</div>;
   }
@@ -109,6 +66,31 @@ const Profile = () => {
   if (!user) {
     return <div className="profile-error">No user data</div>;
   }
+
+  const handleRegister = async () => {
+    try {
+      setRegistering(true)
+      const API = import.meta.env.VITE_API_URL;
+      const token = localStorage.getItem("token");
+      await axios.post(
+        `${API}/api/events/register`,
+        { eventId: selectedEvent._id },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Registered successfully!")
+      setSelectedEvent(null);
+    } catch (err) {
+      alert(err.response?.data?.message || "Registration Failed!");
+    }
+    finally{
+      setRegistering(false)
+    }
+  }
+
 
   return (
     <div className="app-container">
@@ -151,70 +133,43 @@ const Profile = () => {
               </div>
             )}
           </section>
-
           <h3 className="apply-title">Apply to Events</h3>
 
           <div className="apply-grid">
-            {availableEvents.map((event) => (
-              <div
-                key={event.code}
+            {events.length === 0 ? (
+              <p>No events available</p>
+            ) : (
+              events.map((event) => (
+                <div
+                key={event._id}
                 className="apply-card"
                 onClick={() => setSelectedEvent(event)}
-              >
-                <h4>{event.name}</h4>
-                <span className="event-code">{event.code}</span>
-              </div>
-            ))}
+                >
+                  {event.name}
+                </div>
+              ))
+            )}
           </div>
+
         </div>
       </main>
-
       {selectedEvent && (
-        <div
-          className="modal-overlay"
-          onClick={() => setSelectedEvent(null)}
-        >
-          <div
-            className="modal-box"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2>{selectedEvent.name}</h2>
+      <div className="modal-overlay" onClick={() => setSelectedEvent(null)}>
+      <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+        <h2>{selectedEvent.name}</h2>
+        <p>Event Code: {selectedEvent.code}</p>
 
-            <button
-              className="register-btn-2"
-              onClick={registerInterest}
-              disabled={registering}
-            >
-              {registering ? "Registering..." : "Click here to register"}
-            </button>
-          </div>
-        </div>
-      )}
-      {showThanks && (
-        <div
-          className="modal-overlay"
-          onClick={() => setShowThanks(false)}
-        >
-          <div
-            className="modal-box"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2>🎉 Registration Successful</h2>
-            <p>
-              Thanks for registering!
-              You’ll be contacted with further details soon.
-            </p>
 
-            <button
-              className="register-btn-2"
-              onClick={() => setShowThanks(false)}
-            >
-              Awesome!
-            </button>
-          </div>
-        </div>
-      )}
-
+      <button
+        className="register-btn-2"
+        onClick={handleRegister}
+        disabled={registering}
+      >
+        {registering ? "Registering..." : "Register"}
+      </button>
+    </div>
+  </div>
+)}
     </div>
   );
 };
