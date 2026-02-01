@@ -19,7 +19,7 @@ const Profile = () => {
     try {
       const LIT_API = import.meta.env.VITE_LIT_API_URL;
       const res = await axios.get(`${LIT_API}/api/events`);
-      setEvents(res.data); 
+      setEvents(res.data.events); 
     } catch (err) {
       console.log("Failed to fetch events", err);
     }
@@ -68,28 +68,29 @@ const Profile = () => {
   }
 
   const handleRegister = async () => {
-    try {
-      setRegistering(true)
-      const API = import.meta.env.VITE_API_URL;
-      const token = localStorage.getItem("token");
-      await axios.post(
-        `${API}/api/events/register`,
-        { eventId: selectedEvent._id },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      alert("Registered successfully!")
-      setSelectedEvent(null);
-    } catch (err) {
-      alert(err.response?.data?.message || "Registration Failed!");
-    }
-    finally{
-      setRegistering(false)
-    }
+  try {
+    setRegistering(true);
+    const token = localStorage.getItem("token");
+
+    await axios.post(
+      `${LIT_API}/api/events/${selectedEvent.code}/interest`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    alert("Registered successfully!");
+    setSelectedEvent(null);
+  } catch (err) {
+    alert(err.response?.data?.message || "Registration Failed!");
+  } finally {
+    setRegistering(false);
   }
+};
+
 
 
   return (
@@ -140,15 +141,15 @@ const Profile = () => {
               <p>No events available</p>
             ) : (
               events.map((event) => (
-                <div
-                key={event._id}
-                className="apply-card"
-                onClick={() => setSelectedEvent(event)}
-                >
-                  {event.name}
+              <div
+              key={event.code}
+              className="apply-card"
+              onClick={() => setSelectedEvent(event)}
+              >
+                {event.name}
                 </div>
-              ))
-            )}
+                ))
+                )}
           </div>
 
         </div>
