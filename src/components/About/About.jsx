@@ -14,6 +14,7 @@ const About = () => {
         muted
         loop
         playsInline
+        preload="none"
       >
         <source src={waterfallVideo} type="video/mp4" />
       </video>
