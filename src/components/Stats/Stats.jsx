@@ -12,6 +12,7 @@ const Stats = () => {
         loop
         muted
         playsInline
+        preload="none"
       />
 
       <div className="stats-overlay"></div>
