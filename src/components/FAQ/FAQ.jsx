@@ -46,7 +46,7 @@ const FAQ = () => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="none"
         />
       
         <div className="faq-overlay"></div>
