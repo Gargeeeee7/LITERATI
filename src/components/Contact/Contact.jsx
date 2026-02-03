@@ -69,6 +69,7 @@ const Contact = () => {
     loop
     muted
     playsInline
+    preload="none"
   />
 
   <div className="contact-overlay"></div>
