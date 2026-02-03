@@ -113,7 +113,7 @@ const Gallery = () => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="none"
         />
       
         <div className="gallery-overlay"> </div>
