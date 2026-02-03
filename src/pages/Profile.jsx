@@ -14,12 +14,13 @@ const Profile = () => {
   const [events, setEvents] = useState([])
   const [registering, setRegistering] = useState(false)
 
-  useEffect(() => {
+ useEffect(() => {
   const fetchEvents = async () => {
     try {
-      const LIT_API = import.meta.env.VITE_LIT_API_URL;
-      const res = await axios.get(`${LIT_API}/api/events`);
-      setEvents(res.data.events); 
+      const API = import.meta.env.VITE_API_URL;
+
+      const res = await axios.get(`${API}/api/events`);
+      setEvents(res.data.events);
     } catch (err) {
       console.log("Failed to fetch events", err);
     }
@@ -27,6 +28,7 @@ const Profile = () => {
 
   fetchEvents();
 }, []);
+
 
 
   useEffect(() => {
@@ -71,6 +73,8 @@ const Profile = () => {
   try {
     setRegistering(true);
     const token = localStorage.getItem("token");
+    const LIT_API = import.meta.env.VITE_LIT_API_URL;
+
 
     await axios.post(
       `${LIT_API}/api/events/${selectedEvent.code}/interest`,
@@ -149,7 +153,7 @@ const Profile = () => {
                 {event.name}
                 </div>
                 ))
-                )}
+          )}
           </div>
 
         </div>
