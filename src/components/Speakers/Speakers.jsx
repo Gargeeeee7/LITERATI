@@ -18,7 +18,7 @@ const Speakers = () => {
     loop
     muted
     playsInline
-    preload="auto"
+    preload="none"
   />
 
   <div className="speakers-overlay"></div>
