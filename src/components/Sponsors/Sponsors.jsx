@@ -12,7 +12,7 @@ const Sponsors = () => {
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload="none"
               />
             
               <div className="sponsors-overlay"> </div>
