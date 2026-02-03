@@ -61,7 +61,7 @@ const Events = () => {
     loop
     muted
     playsInline
-    preload="auto"
+    preload="none"
   />
       <div className="events-overlay"></div>
       <div className="floating-particles"></div>
