@@ -73,11 +73,11 @@ const Profile = () => {
   try {
     setRegistering(true);
     const token = localStorage.getItem("token");
-    const LIT_API = import.meta.env.VITE_LIT_API_URL;
+    const API = import.meta.env.VITE_API_URL;
 
 
     await axios.post(
-      `${LIT_API}/api/events/${selectedEvent.code}/interest`,
+      `${API}/api/events/${selectedEvent.code}/interest`,
       {},
       {
         headers: {
