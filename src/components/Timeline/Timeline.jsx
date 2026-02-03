@@ -51,6 +51,7 @@ const Timeline = () => {
     loop
     muted
     playsInline
+    preload="none"
   />
 
   <div className="timeline-overlay"></div>
