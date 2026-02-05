@@ -1,6 +1,7 @@
 import React from "react";
 import "./Speakers.css";
 import speakers from "../../assets/speakers.mp4";
+import shoeb from "../../assets/images/Dr. Shoeb Khan.jpg";
 
 const list = [
   {
@@ -10,14 +11,7 @@ const list = [
     date: "Feb 5th, 2026",
     time: "11:00 AM",
     venue: "Hira Hall",
-  },
-  {
-    name: "To Be Disclosed Soon",
-    qual: "Special Guest",
-    topic: "Poet",
-    date: "-",
-    time: "-",
-    venue: "-",
+    img : shoeb,
   },
 ];
 
@@ -42,6 +36,9 @@ const Speakers = () => {
         <div className="speaker-grid">
           {list.map((s, i) => (
             <div key={i} className="speaker-card">
+                <div className="speaker-img">
+                   <img src={s.img} alt={s.name} />
+                </div>
               <div className="card-header">
                 <h3>{s.name}</h3>
                 {s.qual && <span className="speaker-qual">{s.qual}</span>}
