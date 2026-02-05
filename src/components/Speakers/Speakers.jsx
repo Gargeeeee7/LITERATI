@@ -1,7 +1,7 @@
 import React from "react";
 import "./Speakers.css";
 import speakers from "../../assets/speakers.mp4";
-import shoeb from "../../assets/images/Dr. Shoeb Khan.jpg";
+import shoeb from "../../assets/images/Shoeb.jpeg";
 
 const list = [
   {
