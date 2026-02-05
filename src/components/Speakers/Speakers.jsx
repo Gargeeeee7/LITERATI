@@ -15,7 +15,6 @@ const list = [
   },
 ];
 
-
 const Speakers = () => {
   return (
     <section id="speakers" className="speakers">
