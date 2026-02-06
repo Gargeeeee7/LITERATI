@@ -73,3 +73,83 @@
   margin: 0;
 }
 
+.sponsor-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 50px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.sponsor-card {
+  background: rgba(127,255,161,0.05);
+  border: 1px solid rgba(127,255,161,0.25);
+  border-radius: 18px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(120deg,#7fffa1,transparent,#7fffa1);
+
+  -webkit-mask: 
+     linear-gradient(#000 0 0) content-box, 
+     linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  mask: 
+     linear-gradient(#000 0 0) content-box, 
+     linear-gradient(#000 0 0);
+  mask-composite: exclude; 
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.sponsor-card:hover::before {
+  opacity: 1;
+}
+
+.sponsor-card img {
+  width: 100%;
+  max-width: 400px;
+  height: 240px;
+  object-fit: contain;
+  transition: 0.4s;
+  filter: brightness(0.9);
+}
+
+.sponsor-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 40px rgba(127,255,161,0.25);
+  border-color: #7fffa1;
+}
+
+.sponsor-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 768px){
+  .sponsor-grid{
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sponsor-card img{
+    max-width: 180px;
+    height: 100px;
+  }
+}
+
+
