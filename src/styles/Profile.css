@@ -328,3 +328,14 @@ body {
   color: #9fffcf;
   opacity: 0.9;
 }
+
+.profile-page-container {
+  @media (min-width: 769px) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+}

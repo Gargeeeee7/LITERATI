@@ -361,14 +361,16 @@
   .leaderboard {
     display: flex;
     flex-direction: column;
-    /* Sets height to viewport height minus header/margins (adjust 6rem as needed) */
-    height: calc(100vh - 6rem); 
-    overflow: hidden; /* Prevents the main page from scrolling */
+    /* Fill remaining vertical space instead of fixed calc */
+    flex: 1;           
+    height: auto;      
+    overflow: hidden;  /* Prevents the container itself from scrolling */
+    min-height: 0;     /* Required for nested flex scrolling */
   }
 
   .leaderboard-table-container {
     flex: 1;           /* Expands to fill all remaining vertical space */
-    max-height: none;  /* Removes the static 400px limit */
+    max-height: none;  /* Removes the static limit */
     min-height: 0;     /* Crucial for enabling scroll within a flex child */
     overflow-y: auto;  /* Adds the scrollbar specifically to this table area */
     margin-bottom: 0;
@@ -385,7 +387,7 @@
   .sticky-current-user {
     flex-shrink: 0;
     margin-top: auto;
-    position: sticky; /* Keeps existing behavior functionality */
+    position: sticky;
     bottom: 0;
     z-index: 20;
   }

@@ -202,3 +202,9 @@
     font-size: 2.8rem;
   }
 }
+@media (min-width: 769px) {
+  .profile-header {
+    flex-shrink: 0;
+    margin-bottom: 1.5rem;
+  }
+}
