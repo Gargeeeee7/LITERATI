@@ -25,7 +25,6 @@
   position: relative;
   z-index: 10;
   min-height: 100vh;
-
   display: flex;
   gap: 2rem;
   padding: 1rem;
@@ -53,6 +52,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
+    height: auto;
+    overflow: visible;
   }
 
   .dashboard-content > * {

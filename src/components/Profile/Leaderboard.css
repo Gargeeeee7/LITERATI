@@ -361,16 +361,15 @@
   .leaderboard {
     display: flex;
     flex-direction: column;
-    flex: 1;           
     height: 100%;
-    overflow: hidden;  
-    min-height: 0;     
+    max-height: 100%;
+    overflow: hidden
   }
 
   .leaderboard-table-container {
     flex: 1;
-    max-height: none;  
-    min-height: 0;     
+    max-height: none;
+    min-height: 0;
     overflow-y: auto;
     margin-bottom: 0;
   }

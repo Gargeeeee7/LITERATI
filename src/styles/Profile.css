@@ -369,3 +369,57 @@ body {
     overflow: hidden; 
   }
 }
+
+.profile-content {
+  max-width: 75rem;
+  width: 100%;
+  padding: 1rem 1rem 1rem;
+  margin-top: 90px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-page-container {
+  @media (min-width: 769px) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+}
+
+@media (min-width: 769px) {
+  .app-container {
+    height: 100%;
+    margin-bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-content {
+    margin-top: 0; 
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none; 
+  }
+  
+  .profile-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bottom-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .event-score-list, .apply-grid {
+    overflow: visible; 
+  }
+}
