@@ -12,7 +12,7 @@
   position: relative;
   margin: 1.5rem 0;
 }
-
+ 
 .search-icon {
   position: absolute;
   left: 1rem;
@@ -354,5 +354,39 @@
 
   .sticky-college {
     display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    /* Sets height to viewport height minus header/margins (adjust 6rem as needed) */
+    height: calc(100vh - 6rem); 
+    overflow: hidden; /* Prevents the main page from scrolling */
+  }
+
+  .leaderboard-table-container {
+    flex: 1;           /* Expands to fill all remaining vertical space */
+    max-height: none;  /* Removes the static 400px limit */
+    min-height: 0;     /* Crucial for enabling scroll within a flex child */
+    overflow-y: auto;  /* Adds the scrollbar specifically to this table area */
+    margin-bottom: 0;
+  }
+
+  /* Prevent header sections from shrinking */
+  .section-title,
+  .search-container,
+  .podium {
+    flex-shrink: 0;
+  }
+
+  /* Ensure the sticky row sits properly at the bottom if visible */
+  .sticky-current-user {
+    flex-shrink: 0;
+    margin-top: auto;
+    position: sticky; /* Keeps existing behavior functionality */
+    bottom: 0;
+    z-index: 20;
   }
 }
