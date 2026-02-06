@@ -12,6 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #0a0f0a;
   color: #d4e8d4;
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -59,11 +60,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
-  position: sticky;
-  top: 0;
   background: rgba(10, 15, 10, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(52, 211, 153, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 9999;
 }
 
@@ -115,6 +118,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 1rem 1rem 1rem;
+  margin-top: 90px;
   position: relative;
   z-index: 1;
 }
