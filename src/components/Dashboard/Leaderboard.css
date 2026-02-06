@@ -17,7 +17,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url("/jungle.jfif");
+  background-image: url("/forest.jfif");
   background: linear-gradient(100deg, #064e3b, #166534, #022c22);
   background-attachment: fixed;   
   background-size: cover;
