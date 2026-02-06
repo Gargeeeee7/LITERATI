@@ -361,29 +361,26 @@
   .leaderboard {
     display: flex;
     flex-direction: column;
-    /* Fill remaining vertical space instead of fixed calc */
     flex: 1;           
-    height: auto;      
-    overflow: hidden;  /* Prevents the container itself from scrolling */
-    min-height: 0;     /* Required for nested flex scrolling */
+    height: 100%;
+    overflow: hidden;  
+    min-height: 0;     
   }
 
   .leaderboard-table-container {
-    flex: 1;           /* Expands to fill all remaining vertical space */
-    max-height: none;  /* Removes the static limit */
-    min-height: 0;     /* Crucial for enabling scroll within a flex child */
-    overflow-y: auto;  /* Adds the scrollbar specifically to this table area */
+    flex: 1;
+    max-height: none;  
+    min-height: 0;     
+    overflow-y: auto;
     margin-bottom: 0;
   }
 
-  /* Prevent header sections from shrinking */
   .section-title,
   .search-container,
   .podium {
     flex-shrink: 0;
   }
 
-  /* Ensure the sticky row sits properly at the bottom if visible */
   .sticky-current-user {
     flex-shrink: 0;
     margin-top: auto;
