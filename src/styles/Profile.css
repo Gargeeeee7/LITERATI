@@ -12,7 +12,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #0a0f0a;
   color: #d4e8d4;
-  overflow-x: hidden;
 }
 
 .app-container {
@@ -62,10 +61,10 @@ body {
   padding: 1.5rem 3rem;
   position: sticky;
   top: 0;
-  background: rgba(10, 15, 10, 0.8);
+  background: rgba(10, 15, 10, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(52, 211, 153, 0.1);
-  z-index: 100;
+  z-index: 9999;
 }
 
 .logo {
