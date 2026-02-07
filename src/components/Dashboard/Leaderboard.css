@@ -10,6 +10,17 @@
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.35);
   color: #ecfdf5;
   transition: box-shadow 0.3s ease;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.leaderboard-list {
+  flex: 1;
+  min-height: 0;       
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
 body {
@@ -44,11 +55,14 @@ body {
   padding: 1.25rem;
 }
 
-.leaderboard-header h1 {
-  font-size: 1.875rem;
-  font-weight: 600;
-  color: #fde68a;
+.leaderboard-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  flex-shrink: 0; 
 }
+
 
 .crown-icon {
   font-size: 2.25rem;

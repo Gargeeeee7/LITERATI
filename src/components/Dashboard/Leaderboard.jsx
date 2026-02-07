@@ -31,7 +31,7 @@ function Leaderboard() {
             : {}
         );
 
-        if (res.data.success) {
+        if (res.data?.success) {
           const rankedData = res.data.leaderboard.map((user, index) => ({
             id: user._id,
             rank: index + 1,
@@ -42,7 +42,7 @@ function Leaderboard() {
           setStandings(rankedData);
         }
       } catch (err) {
-        console.error("Leaderboard fetch failed");
+        console.error("Leaderboard fetch failed", err);
       } finally {
         setLoading(false);
       }
@@ -58,9 +58,7 @@ function Leaderboard() {
         <header className="leaderboard-header">
           <FaCrown className="crown-icon" />
           <div className="leaderboard-title-block">
-            <h1 className="leaderboard-title">
-              Overall Standings
-            </h1>
+            <h1 className="leaderboard-title">Overall Standings</h1>
             <p className="leaderboard-subtitle">
               Top performers across all events
             </p>
@@ -80,20 +78,19 @@ function Leaderboard() {
           </p>
         )}
 
-        {/* List */}
+        {/* Scrollable List */}
         {!loading && standings.length > 0 && (
           <div className="leaderboard-list">
             {standings.map((item) => (
               <div
                 key={item.id}
-                className={`leaderboard-row ${getRankClass(
-                  item.rank
-                )}`}
+                className={`leaderboard-row ${getRankClass(item.rank)}`}
               >
                 <div className="leaderboard-left">
                   <div className="rank-circle">
                     {item.rank}
                   </div>
+
                   <span className="player-name">
                     {item.name}
                   </span>
