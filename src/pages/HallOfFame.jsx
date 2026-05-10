@@ -30,67 +30,65 @@ const resolveImage = (filename) => {
 const hofData = [
   {
     id: 1,
-    name: "Arjun Dev",
-    role: "Poet • Writer • Orator",
-    category: "Poetry",
-    batch: "2023",
+    name: "Name",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
     achievement:
-      "Words have the power to build worlds, and I chose to build bridges.",
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
     image: "sampleimg.jpg"
   },
 
-  {
+ {
     id: 2,
-    name: "Raghav Sharma",
-    role: "Storytelling Lead",
-    category: "Poetry",
-    batch: "2022",
+    name: "Name",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
     achievement:
-      "Storyteller with a vision beyond words.",
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
     image: "sampleimg.jpg"
   },
 
-  {
+ {
     id: 3,
-    name: "Ananya Singh",
-    role: "Drama Coordinator",
-    category: "Drama",
-    batch: "2021",
+    name: "Name",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
     achievement:
-      "Brings characters to life on stage and beyond.",
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
     image: "sampleimg.jpg"
   },
 
-  {
+ {
     id: 4,
-    name: "Ishita Verma",
-    role: "Creative Director",
-    category: "Leadership",
-    batch: "2020",
+    name: "Name",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
     achievement:
-      "Led the literary movement with passion and innovation.",
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
     image: "sampleimg.jpg"
   },
 
-  {
+ {
     id: 5,
-    name: "Karan Mehta",
-    role: "Essayist",
-    category: "Creative Writing",
-    batch: "2019",
+    name: "Name",
+    role: "Role",
+    category: "Category",
+    batch: "Year",
     achievement:
-      "Crafted narratives that inspired generations of writers.",
+      "Achievement description goes here, highlighting the inductee's contributions and impact on the literary community.",
     image: "sampleimg.jpg"
-  }
+  },
 ];
 
 const categories = [
   "All",
-  "Poetry",
-  "Prose",
-  "Drama",
-  "Leadership",
-  "Creative Writing"
+  "Year x",
+  "Year y",
+  "Year z" 
 ];
 
 const HallOfFame = () => {
