@@ -42,7 +42,6 @@ const Landing = ({ onRegisterClick }) => {
       <AnimatedSection><FAQ /></AnimatedSection>
       <AnimatedSection><Contact /></AnimatedSection>
 
-
       <Footer />
     </div>
   );
