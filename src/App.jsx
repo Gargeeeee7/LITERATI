@@ -1,0 +1,87 @@
+import React, { use, useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Book from "./components/Registration-Form/Book";
+import Landing from "./pages/Landing.jsx";
+import Register from "./pages/Register.jsx";
+import Profile from "./pages/Profile.jsx";
+import Login from "./components/Login/Login";
+import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
+import ClosedBook from "./components/ClosedBook/ClosedBook";
+import AdminLogin from "./components/admin/adminLogin.jsx";
+import Leaderboard from "./components/Profile/Leaderboard";
+import Dashboard from "./pages/Dashboard.jsx";
+import Scoreboard from "./components/Dashboard/Scoreboard";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import CursorSparkles from "./components/CursorSparkles/CursorSparkles.jsx";
+import CursorBirds from "./components/CursorBirds/CursorBirds.jsx";
+import publicLB from "./pages/publicLB.jsx";
+import PublicLB from "./components/Dashboard/PublicLB";
+import PublicLeaderboard from "./components/Dashboard/PublicLB.jsx";
+import Admin from "./pages/admin.jsx";
+import HallOfFame from "./pages/HallOfFame.jsx";
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Landing />} />
+        <Route path="/halloffame" element={<HallOfFame />} />
+        <Route path="/register" element={<Register />}>
+          <Route index element={<ClosedBook />} />
+          <Route path="login" element={<Login />} />
+          <Route path="book" element={<Book />} />
+        </Route>
+
+        <Route path="/public_leaderboard" element={<PublicLB/>}/>
+
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
+          <Route index element={<Leaderboard />} />
+        </Route>
+
+        <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<Admin />} />
+        <Route path="/profile" element={<Profile/>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
+function App() {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const API = import.meta.env.VITE_API_URL;
+
+    fetch(`${API}/api`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setMessage(data.message);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <Router>
+      <CursorSparkles />
+      <CursorBirds />
+      <AudioPlayer />
+
+      <div className="fireflies-container">
+        <div className="firefly-group left delay-1" />
+        <div className="firefly-group left delay-2" />
+        <div className="firefly-group left delay-3" />
+        <div className="firefly-group right delay-1" />
+        <div className="firefly-group right delay-2" />
+        <div className="firefly-group right delay-3" />
+      </div>
+
+      <AnimatedRoutes />
+    </Router>
+  );
+}
+
+export default App;
